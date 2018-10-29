@@ -1,4 +1,4 @@
-# TransferService REST WebService for money tranfer.
+# TransferService REST WebService for money transfer.
 TransferService is a rest web service 
 written in Java using Spring Framework and JWT 
 authentication, even if the specification 
@@ -50,12 +50,13 @@ ObjectId hexstring with a given amount.
 of the business rules.
 
 #Code organization.
+
 Since the number of entities we don't follow the DDD pattern or use DTO.
 We have decided to keep it simple as possible but consistent. So we the code is 
 organized in the following directories:
-/src/main/java  - source code
-/test - integration tests using MockMvc+Mockito+Junit.
-/python - quick python scripts that covers:
+a./src/main/java  - source code
+b./test/main/java - integration tests using MockMvc+Mockito+Junit.
+c./python - quick python scripts that covers:
            1. registeruser.py registration of a new user
            2. login.py all the operation in arbitrary way.
            3. widthdrawtests.py loop transfer until the account is negative
