@@ -1,6 +1,7 @@
 #include <concepts>
 #include <algorithm>
-
+namespace sorting
+{
 template < typename T > requires std::totally_ordered < T > void
 selection_sort (std::vector < T > &v)
 {
@@ -19,4 +20,5 @@ selection_sort (std::vector < T > &v)
 	  std::swap (v[i], v[min]);
 	}
     }
+};
 }

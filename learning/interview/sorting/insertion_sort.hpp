@@ -1,6 +1,7 @@
 #include <concepts>
 #include <algorithm>
-
+namespace sorting
+{
 template < typename T > requires std::totally_ordered < T > void
 insertion_sort (std::vector < T > &v)
 {
@@ -14,4 +15,5 @@ insertion_sort (std::vector < T > &v)
 
 	}
     }
+};
 }

@@ -1,6 +1,9 @@
+#ifndef BUBBLE_SORT_HPP
+#define BUBBLE_SORT_HPP
 #include <concepts>
 #include <algorithm>
-
+namespace sorting
+{
 template < typename T > requires std::totally_ordered < T > void
 bubble_sort (std::vector < T > &v)
 {
@@ -19,4 +22,6 @@ bubble_sort (std::vector < T > &v)
 	    }
 	}
     } while(swapped);
+};
 }
+#endif

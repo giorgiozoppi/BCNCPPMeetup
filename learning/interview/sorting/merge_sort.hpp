@@ -2,7 +2,8 @@
 #include <algorithm>
 #include <iterator>
 #include <vector>
-
+namespace sorting
+{
 template < typename T > requires std::totally_ordered < T > void
 recursive_sort (std::vector < T > &input, std::vector < T > &aux_buffer,
 		int lower_bound, int higher_bound)
@@ -14,7 +15,7 @@ recursive_sort (std::vector < T > &input, std::vector < T > &aux_buffer,
   recursive_sort (input, aux_buffer, lower_bound, middle_pivot);
   recursive_sort (input, aux_buffer, middle_pivot + 1, higher_bound);
   merge (input, aux_buffer, lower_bound, middle_pivot, higher_bound);
-}
+};
 
 template < typename T > requires std::totally_ordered < T > void
 merge (std::vector < T > &input, const std::vector < T > &aux, int lower,
@@ -47,7 +48,7 @@ merge (std::vector < T > &input, const std::vector < T > &aux, int lower,
 	  a[k] = aux[i++];
 	}
     }
-}
+};
 
 template < typename T > requires std::totally_ordered < T > void
 merge_sort (std::vector < T > &v)
@@ -57,4 +58,5 @@ merge_sort (std::vector < T > &v)
   const int
     N = v.size ();
   recursive_sort (v, aux, 0, v.size () - 1);
+};
 }
