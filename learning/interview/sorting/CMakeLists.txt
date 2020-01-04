@@ -32,7 +32,6 @@ SET (CMAKE_VERBOSE_MAKEFILE 1) # Use 1 for debugging, 0 for release
 SET (CMAKE_CXX_STANDARD 20)
 SET (CMAKE_CXX_STANDARD_REQUIRED ON)
 
-
 if(DEFINED VCPKG_INSTALLED_X64)
   SET(VCPKG_INCLUDE "${VCPKG_INSTALLED_X64}/include")
 endif()
@@ -54,8 +53,8 @@ set_target_properties(sorting PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRE
 target_link_libraries(sorting PRIVATE 
                       ${CMAKE_DL_LIBS})
 if(CMAKE_COMPILER_IS_GNUCXX)
-  set(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
-  set(CMAKE_C_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 -fconcepts -fprofile-arcs")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -O0 -fprofile-arcs -ftest-coverage")
 endif()
 
 
