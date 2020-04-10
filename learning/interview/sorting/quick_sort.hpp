@@ -33,11 +33,10 @@ template <typename T> int partition(std::vector<T>& v,
     std::function<bool(T,T)> cmp)
 {
     int i = 0;
-    /*
- std::uniform_int_distribution<int> uniform_dist(lower, upper);
- int pivot = uniform_dist(engine);
- auto partition_value = v[pivot];
- auto i = lower - 1;
+    std::uniform_int_distribution<int> uniform_dist(lower, upper);
+    int pivot = uniform_dist(engine);
+    auto partition_value = v[pivot];
+    auto i = lower - 1;
  for (auto j = lower; j < upper -1; j++)
  {
      if (v[j]<=partition_value)
@@ -46,7 +45,7 @@ template <typename T> int partition(std::vector<T>& v,
          std::swap(v[i],v[j]);
      }
  }
- std::swap(v[i+1], v[partition_value]);*/
+ std::swap(v[i+1], v[partition_value]);
  return i;
 }
 }
