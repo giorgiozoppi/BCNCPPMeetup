@@ -1,47 +1,47 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 	"strconv"
 )
 
-func Swap(numbers []int, i int) {
-	numbers[i], numbers[i+1] = numbers[i+1], numbers[i]
+func Swap(slice []int, i int) {
+	slice[i], slice[i+1] = slice[i+1], slice[i]
 }
-func BubbleSort(numbers []int) {
-	swapped := false
-	for {
-		swapped = false
-		for j := 0; j < len(numbers)-1; j++ {
-			if numbers[j] > numbers[j+1] {
-				Swap(numbers, j)
-				swapped = true
+func BubbleSort(nums []int) []int {
+	for i := 0; i < len(nums)-1; i++ {
+		for j := 0; j < len(nums)-i-1; j++ {
+			if nums[j] > nums[j+1] {
+				Swap(nums, j)
 			}
 		}
-		if !swapped {
+	}
+	return nums
+}
+
+func main() {
+	//nums := []int{3, 5, 2, 7, 2, 4, 1, 5, 7}
+	nums := make([]int, 0, 10)
+
+	for len(nums) <= 10 {
+		var tempString string
+		fmt.Print("Input number (Type X to stop): ")
+		fmt.Scan(&tempString)
+
+		if tempString == "X" {
 			break
 		}
-	}
-}
-func main() {
-	numbers := make([]int, 0)
-
-	for i := 0; i < 10; i++ {
-		scanner := bufio.NewScanner(os.Stdin)
-		scanner.Scan()
-		txt := scanner.Text()
-		num, err := strconv.Atoi(txt)
+		tempInt, err := strconv.Atoi(tempString)
 		if err != nil {
-			panic("Error converting value")
+			fmt.Println("Error")
+			break
 		}
-		numbers = append(numbers, num)
-	}
-	BubbleSort(numbers)
-	for i := range numbers {
-		fmt.Printf("%d ", numbers[i])
-	}
-	fmt.Printf("\n")
 
+		nums = append(nums, tempInt)
+		fmt.Println("Numbers: ", nums)
+	}
+
+	fmt.Println("Before sort: ", nums)
+	BubbleSort(nums)
+	fmt.Println("After sort: ", nums)
 }
