@@ -51,17 +51,14 @@ func main() {
 		action := strings.TrimSpace(scan.Text())
 
 		switch action {
-		case "eat":
-			{
+		case "eat":{
 				fmt.Println(tmp.Move())
 			}
-		case "move":
-			{
+		case "move":{
 				fmt.Println(tmp.Move())
 
 			}
-		case "speak":
-			{
+		case "speak":{
 				fmt.Println(tmp.Speak())
 
 			}
