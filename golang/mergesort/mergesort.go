@@ -97,7 +97,6 @@ func main() {
 	array := ScanIntegers()
 	quarter := len(array) / 4
 	fmt.Printf("Quarter %v %v\n", quarter, len(array))
-	aux := make([]int, 1)
 	count := 0
 	var part sort.IntSlice
 	for sum := 0; sum < len(array); sum += quarter {
@@ -124,7 +123,7 @@ func main() {
 	wg.Add(1)
 	go MergePart(partialch, resultch, &wg)
 	wg.Wait()
-	aux = <-resultch
+	aux := <-resultch
 	fmt.Printf("Sorted Array: %v\n", aux)
 
 }
