@@ -68,8 +68,8 @@ func main() {
 			RightChop: CSticks[(first_chop+1)%5],
 		}
 	}
-	sched := make(chan bool, 1)
-	host := make(chan bool, 1)
+	sched := make(chan bool, 2)
+	host := make(chan bool, 5)
 
 	var wg sync.WaitGroup
 	for i := 0; i < 5; i++ {
